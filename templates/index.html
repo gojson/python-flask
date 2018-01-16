@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}
+    首页
+{% endblock %}
+
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/index.css') }}">
+{% endblock %}
+
+{% block main %}
+    <ul>
+        {% for content in questions %}
+            <a href="{{ url_for('detail',question_id=content.id) }}">
+                <li>
+                    <div class="avatar-group">
+                        <img src="{{ url_for('static',filename='images/notes.jpg') }}" alt="" class="avarar">
+                    </div>
+                    <div class="question-group">
+                        <p class="question-title"><a href=""> {{ content.title }}</a></p>
+                        <p class="question-content">{{ content.content }}</p>
+                        <div class="question-info">
+                            <span class="question-author">{{ content.author.username }}</span>
+                            <span class="question-time">{{ content.created_at }}</span>
+                        </div>
+                    </div>
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+{#    <video src="{{ url_for('static',filename='video/E40B015D1238A9D96D5B83A28A144FCF.mp4') }}" width="400" autoplay="autoplay" controls="controls">#}
+{#    </video>#}
+{% endblock %}
+
+

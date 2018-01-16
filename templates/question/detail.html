@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}
+详情
+{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static',filename="css/detail.css") }}">
+{% endblock %}
+
+
+
+{% block main %}
+    <h3 class="page-title">{{ info.title }}</h3>
+    <p class="question-info">
+        <span class="">作者：{{ info.author.username }}  </span>
+        <span class="">{{ info.created_at }} </span>
+    </p>
+    <hr>
+    <p class="question-content">
+    {{ info.content }}
+    </p>
+    <hr>
+{% endblock %}
+
+{% block footer %}
+
+{% endblock %}
